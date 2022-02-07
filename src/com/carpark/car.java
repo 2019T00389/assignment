@@ -61,3 +61,66 @@ public class Vehicle {
     }
 
 }
+public class Bike extends Vehicle {
+
+    private boolean suspension;
+
+    public Bike(){
+        super();
+    }
+
+    public Bike(String model, String color, int numOfWheels, boolean suspension){
+        super( model, color, numOfWheels, "na");
+        this.suspension = suspension;
+    }
+
+
+    public boolean getSuspension(){
+        return suspension;
+    }
+
+
+    public void setSuspension(){
+        this.suspension = suspension;
+    }
+
+
+    public void printBikeDetails(){
+        super.printDetails();
+        System.out.println("Does this bike have suspension ?? " + this.suspension);
+    }
+}
+public class Car extends Vehicle{
+
+    private Boolean roof;
+
+
+    public Car(){
+        super();
+    }
+
+    public Car(String model, String color, int numOfWheels, String transmission, Boolean roof){
+
+        super(model, color, numOfWheels, transmission);
+        this.roof = roof;
+
+    }
+
+
+    public boolean getRoof(){
+        return roof;
+    }
+
+    public void setRoof(boolean roof){
+        this.roof=roof;
+    }
+
+
+    public void printdetailscar(){
+        super.printDetails();
+        System.out.println(" does this car has a roof: " + this.roof);
+    }
+}
+<strong></strong>
+
+        import java.util.ArrayList;
