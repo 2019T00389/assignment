@@ -124,3 +124,83 @@ public class Car extends Vehicle{
 <strong></strong>
 
         import java.util.ArrayList;
+
+
+
+
+public class CarPark {
+
+    private static final int maxCapacity = 3;
+    private ArrayList <Vehicle>carParkArray;
+
+
+    public CarPark(){
+
+        this.carParkArray = new ArrayList<Vehicle>(maxCapacity);
+
+    }
+
+
+    public static int getMaxCapacity(){
+        return maxCapacity;
+    }
+
+
+    public int numOfAvailableSpots(){
+        return this.maxCapacity - this.carParkArray.size();
+    }
+
+
+    public int numOfOccupiedSpots(){
+        return this.carParkArray.size();
+    }
+
+
+    public void addVehicles(Vehicle vehicle){
+
+        if(this.numOfAvailableSpots() > 0){
+            this.carParkArray.add(vehicle);
+            vehicle.printDetails();
+            System.out.println("++++++++++++ \n");
+        }else {
+            System.out.println("Car Park is full");
+        }
+
+    }
+    public void printParkedVehicleDetails(){
+
+        for(Vehicle vehicle: this.carParkArray){
+            vehicle.printDetails();
+            System.out.println("++++++++++++++++ \n");
+
+        }
+
+    }
+}
+public class CarParkManagement {
+
+    public static void main(String[] args) {
+
+        Car BMW = new Car("Z4", "red",4, "Auto",false);
+
+        Bike Superfly = new Bike("XTR", "Black",2,true );
+
+        Car Hyundai = new Car("i30","Light Blue",4,"Auto",true);
+
+        CarPark myCarPark = new CarPark();
+
+
+        myCarPark.addVehicles(BMW);
+        myCarPark.addVehicles(Hyundai);
+        myCarPark.addVehicles(Mercedes);
+        myCarPark.addVehicles(Superfly);
+
+
+        System.out.println(" No. of Parked vehicles: " + myCarPark.numOfOccupiedSpots());
+
+        System.out.println("No. of Available Spots: "+ myCarPark.numOfAvailableSpots());
+
+
+        System.out.println("====================\n");
+        System.out.println("List of All Parked Vehicles is as folows: ");
+        myCarPark.printParkedVehicleDetails();
